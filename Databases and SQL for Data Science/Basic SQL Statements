@@ -1,0 +1,48 @@
+--Drop table INSTRUCTOR in case it already exists
+DROP table INSTRUCTOR;
+
+--Create table INSTRUCTOR
+create table INSTRUCTOR(
+ins_id INT, 
+firstname VARCHAR(100), 
+lastname VARCHAR(100), 
+city VARCHAR(50),
+country CHAR(2)
+);
+
+--Insert single row for Rav Ahuja
+INSERT INTO INSTRUCTOR(ins_id, firstname, lastname, city, country)
+VALUES 
+(1,'Rav','Ahuja','Toronto','CA');
+
+--Select all rows from INSTRUCTOR
+SELECT * from INSTRUCTOR;
+
+--Insert the two rows for Raul and Hima
+INSERT INTO INSTRUCTOR(ins_id, firstname, lastname, city, country)
+VALUES 
+(2,'Raul','Chong','Toronto','CA'),
+(3,'Hima','Vasudevan','Chicago','US');
+
+--Select all rows from INSTRUCTOR
+SELECT * from INSTRUCTOR;
+
+--Select firstname, lastname and country where city is Toronto
+SELECT firstname, lastname, country from INSTRUCTOR where city = 'Toronto';
+
+--Change the city for Rav to Markham
+UPDATE INSTRUCTOR
+SET city = 'Markam'
+WHERE firstname = 'Rav'
+AND lastname = 'Ahuja';
+
+--Select all rows from INSTRUCTOR
+SELECT * from INSTRUCTOR;
+
+--Delete the row for Raul Chong
+DELETE from INSTRUCTOR
+WHERE firstname = 'Raul'
+AND lastname = 'Chong';
+
+--Select all rows from INSTRUCTOR
+SELECT * from INSTRUCTOR;
