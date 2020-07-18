@@ -1,0 +1,38 @@
+--Solutions for "LAB: Built-In Functions"
+
+select SUM(SALEPRICE) AS SUM_OF_SALEPRICE from PETSALE;
+
+select MAX(QUANTITY) AS Maximun_Quantity from PETSALE;
+
+select AVG(SALEPRICE) AS Average_SALEPRICE from PETSALE;
+
+--Display Average of SALEPRICE per QUANTITY
+select AVG( SALEPRICE / QUANTITY ) AS Average_SALEPRICE_per_QUATITY 
+from PETSALE where ANIMAL = 'Dog';
+
+--Round the SALEPRICE values
+select SALEPRICE, ROUND(SALEPRICE) AS Rounded_SALEPRICES from PETSALE;
+
+--Calculate Lenght of values in ANIMAL column
+select ANIMAL, LENGTH(ANIMAL) AS Length_of_ANIMAL from PETSALE;
+
+--Display ANIMALS in uppercase
+select ANIMAL, UCASE(ANIMAL) AS Uppercase_ANIMAL from PETSALE;
+
+--Show Distinct ANIMALS in uppercase
+select DISTINCT(UCASE(ANIMAL)) AS distinct_ANIMALS_uppercase from PETSALE;
+
+--How Many Entries are there in table with Animal value in lowercase as 'cat'
+select * from PETSALE where LCASE(ANIMAL) = 'cat';
+
+--Retrieve Day of Saledate
+select SALEDATE, DAY(SALEDATE) from PETSALE where ANIMAL = 'Cat';
+
+--Retreive No. of Sales in the month of May (5th month)
+select COUNT(*) AS No_of_Sales from PETSALE where MONTH(SALEDATE)='05';
+
+select SALEDATE, (SALEDATE + 3 DAYS) AS three_days_from_SALEDATE from PETSALE;
+
+--Calculate No. of Days since Saledate
+select Current DATE, SALEDATE, (CURRENT DATE - SALEDATE) AS No_of_days_Since_Sale 
+from PETSALE;
